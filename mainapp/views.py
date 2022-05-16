@@ -32,9 +32,9 @@ def ajax(request):
 
     words = yolo.labels
     for idx, val in enumerate(yolo.images):
-        print(r"static"+"\\images\\" + words[idx] + ".png")
-        cv2.imwrite(r"static"+"\\images\\" + words[idx] + ".png", val)
-        physics = models.Word(word=yolo.labels[idx], images=r"static"+"\\images\\" + words[idx] + ".png")
+        print(r"static"+"/images/" + words[idx] + ".png")
+        cv2.imwrite(r"static"+"/images/" + words[idx] + ".png", val)
+        physics = models.Word(word=yolo.labels[idx], images=r"static"+"/images/" + words[idx] + ".png")
         physics.save()
 
     #print(response)
@@ -99,7 +99,7 @@ def services(request):
 
 class VideoCamera(object):
     def __init__(self):
-        self.video = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        self.video = cv2.VideoCapture(1)
         (self.grabbed, self.frame) = self.video.read()
         threading.Thread(target=self.update, args=()).start()
 

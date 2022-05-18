@@ -100,6 +100,7 @@ def services(request):
 class VideoCamera(object):
     def __init__(self):
         self.video = cv2.VideoCapture(1)
+        # self.video = set(cv2.CAP_PROP_FPS, 10)
         (self.grabbed, self.frame) = self.video.read()
         threading.Thread(target=self.update, args=()).start()
 
